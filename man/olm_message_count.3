@@ -1,0 +1,42 @@
+.Dd 2/6/13
+.Dt olm_message_count 3 
+.Os
+.Sh NAME
+.Nm olm_message_count
+.Nd return the number of e-mail messages in an OLM data file
+.Sh LIBRARY
+Outlook for Mac message extraction library (libolmec).
+.Sh SYNOPSIS
+.In libolmec.h
+.Ft uint64_t
+.Fn olm_message_count "olm_file_t *file" 
+.Sh DESCRIPTION
+The
+.Fn olm_message_count
+function will return the number of e-mail messages (if any) in an OLM data file, previously opened using the
+.Fn olm_open_file
+function, and represented by the
+.Fa file 
+pointer.
+
+The
+function will return zero if
+.Fa file
+is NULL.
+
+.Bf -symbolic
+Passing anything other that a valid
+.Ft olm_file_t
+pointer to this function will have unpredictable results and very likely crash the library or your application.
+.Ef
+.Sh RETURN VALUES
+The number of e-mail messages (if any) contained in the given OLM data file.
+.Sh ERRORS
+None
+.Sh SEE ALSO 
+.Xr olm_open_file 3 ,
+.Xr olm_get_message_at 3
+.Sh BUGS
+None
+.Sh AUTHORS
+Chris Morrison

@@ -1,0 +1,83 @@
+.Dd 2/6/13 
+.Dt olm_open_file 3
+.Os
+.Sh NAME 
+.Nm olm_open_file
+.Nd open an OLM data file
+.Sh LIBRARY
+Outlook for Mac message extraction library (libolmec).
+.Sh SYNOPSIS
+.In libolmec.h
+.Ft olm_file_t
+.Fn *olm_open_file "const char *filename" "int opts" "int *error_code"
+.Sh DESCRIPTION
+The
+.Fn olm_open_file
+function will open the OLM data file given in
+.Fa filename
+and prepare it for subsequent query and extraction operations. 
+
+The
+.Fa opts
+argument provides additional processing options to apply when opening the file and when performing subsequent operations upon it. The following values are supported:
+
+.Bl -tag -width "OLM_OPT_IGNORE_ERRORS" -compact
+.It Pa OLM_OPT_IGNORE_ERRORS
+Ignore errors and attempt to continue regardless. Fatal or unrecoverable errors will still cause the call to fail.
+.El  
+
+The
+.Fa error_code
+argument will point to an integer that will contain any error information on exit from the call.
+.Bf -symbolic
+This argument cannot be NULL.
+.Ef
+.Sh RETURN VALUES
+Upon successful completion the
+.Fn olm_open_file
+function will return an
+.Ft olm_file_t
+file pointer. Otherwise, NULL is returned and the variable pointed to by the
+.Fa error_code
+argument will contain an value to indicate the error.
+.Sh ERRORS
+The following error values can be returned by any
+.Bf -symbolic
+libolmec
+.Ef
+function:
+
+.Bl -tag -width "OLM_ERROR_ATTACHMENT_NOT_FOUND" -compact
+.It Pa OLM_ERROR_SUCCESS
+No error occurred, the operation completed successfully.
+.It Pa OLM_ERROR_INVALID_PARAMETER
+An invalid or out of range parameter, for example a NULL pointer was passed to a function.
+.It Pa OLM_ERROR_NOT_OLM_FILE
+The given file was not a valid Outlook for Mac (OLM) data file.
+.It Pa OLM_ERROR_FILE_IO_ERROR
+An I/O error occurred during a read, seek or write operation on the file.
+.It Pa OLM_ERROR_FILE_CORRUPTED
+Unexpected or missing data was encountered while parsing the file's metadata, suggestive that it is corrupted, incomplete or damaged.
+.It Pa OLM_ERROR_NO_MEMORY
+The function failed to allocate enough memory to perform the requested operation.
+.It Pa OLM_ERROR_INVALID_FILE_HANDLE
+The 
+.Ft olm_file_t
+pointer passed to the function was not valid.
+.It Pa OLM_ERROR_MESSAGE_CORRUPTED
+Either unexpected or missing data was encountered while trying to extract the message from the file or the message data itself failed the CRC check.
+.It Pa OLM_ERROR_ATTACHMENT_CORRUPTED
+Either unexpected or missing data was encountered while trying to extract an attachment from a message in the file or the attachment data itself failed the CRC check.
+.It Pa OLM_ERROR_ATTACHMENT_NOT_FOUND
+The 
+.Ft olm_attachment_t
+pointer provided did not match an attachment in the OLM data file represented by the given
+.Ft olm_file_t
+pointer.
+.El
+.Sh SEE ALSO 
+.Xr olm_close_file 3
+.Sh BUGS
+None
+.Sh AUTHORS
+Chris Morrison
