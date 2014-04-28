@@ -3,7 +3,7 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 datarootdir=@datarootdir@
 datadir=@datadir@
-includedir=@includedir@/liblibolmec-0.1
+includedir=@includedir@/libolmec
 
 Name: libolmec
 Description: Library to extact emails and attachments from Microsoft Outlook OLM archives.

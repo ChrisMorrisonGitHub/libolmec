@@ -11,8 +11,6 @@ libolmecdoc_DATA = \
 	INSTALL\
 	NEWS
 
-ACLOCAL_AMFLAGS = -l m4
-
 INTLTOOL_FILES = intltool-extract.in \
 	intltool-merge.in \
 	intltool-update.in

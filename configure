@@ -3857,7 +3857,6 @@ fi
 
 
 
-
   { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether NLS is requested" >&5
 $as_echo_n "checking whether NLS is requested... " >&6; }
     # Check whether --enable-nls was given.
@@ -5549,7 +5548,6 @@ $as_echo "$LINGUAS" >&6; }
    rm -f po/POTFILES
    sed -e "/^#/d" -e "/^\$/d" -e "s,.*,	$posrcprefix& \\\\," -e "\$s/\(.*\) \\\\/\1/" \
 	< $srcdir/po/POTFILES.in > po/POTFILES
-
 
 
 case `pwd` in
@@ -12753,10 +12751,6 @@ CC="$lt_save_CC"
 
 
 
-
-
-
-
 if test "x$ac_cv_env_PKG_CONFIG_set" != "xset"; then
 	if test -n "$ac_tool_prefix"; then
   # Extract the first word of "${ac_tool_prefix}pkg-config", so it can be a program name with args.
@@ -13008,7 +13002,7 @@ _ACEOF
   LIBS="-lsimclist $LIBS"
 
 else
-  as_fn_error $? "libsimclist not found (you can get it from http://mij.oltrelinux.com/devel/simclist)" "$LINENO" 5
+  as_fn_error $? "libsimclist not found (you can get it from https://github.com/mij/simclist)" "$LINENO" 5
 fi
 
 
