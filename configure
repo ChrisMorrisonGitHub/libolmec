@@ -13012,7 +13012,7 @@ else
 fi
 
 
-ac_config_files="$ac_config_files Makefile src/libolmec-0.1.pc src/Makefile po/Makefile.in"
+ac_config_files="$ac_config_files Makefile src/libolmec-0.1.pc src/Makefile man/Makefile po/Makefile.in"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -14028,6 +14028,7 @@ do
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
     "src/libolmec-0.1.pc") CONFIG_FILES="$CONFIG_FILES src/libolmec-0.1.pc" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
+    "man/Makefile") CONFIG_FILES="$CONFIG_FILES man/Makefile" ;;
     "po/Makefile.in") CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;
     "po/stamp-it") CONFIG_COMMANDS="$CONFIG_COMMANDS po/stamp-it" ;;
 
