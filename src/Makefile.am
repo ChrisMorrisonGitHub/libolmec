@@ -6,12 +6,7 @@ AM_CPPFLAGS = \
 	$(LIBXML_CFLAGS)"\" \
 	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\"
 
-AM_CFLAGS =\
-	 -Wall\
-	 -g
-
 lib_LTLIBRARIES = libolmec.la
-
 
 libolmec_la_SOURCES = \
 	contact.c \
@@ -19,17 +14,8 @@ libolmec_la_SOURCES = \
 	private.h \
 	contact.h
 
-libolmec_la_CFLAGS = $(libxml_CFLAGS) \
-	--std=gnu99 
+libolmec_la_CFLAGS = -Wall --std=gnu99 -O3 $(libxml_CFLAGS)
 
-libolmec_la_LDFLAGS =  \
-	$(libxml_LIBS)
-
-pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libolmec-0.1.pc \
-	libolmec-0.1.pc.in
-
-EXTRA_DIST = \
-	libolmec-0.1.pc.in
+libolmec_la_LDFLAGS = $(libxml_LIBS)
 
 include_HEADERS = libolmec.h

@@ -6,11 +6,17 @@ AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE([1.11])
 
-AM_SILENT_RULES([yes])
-
 AC_PROG_CC
-
+AC_PROG_CC_C99
+AC_HEADER_STDC
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_LIBTOOL
+AC_PROG_MAKE_SET
 AC_CONFIG_MACRO_DIR([m4])
+
+CFLAGS=
+AC_SUBST(CFLAGS)
 
 dnl ***************************************************************************
 dnl Internationalization
@@ -32,7 +38,7 @@ AC_CHECK_LIB([simclist], [list_init], [], [AC_MSG_ERROR([libsimclist not found (
 
 AC_OUTPUT([
 Makefile
-src/libolmec-0.1.pc
+libolmec.pc
 src/Makefile
 man/Makefile
 po/Makefile.in])
